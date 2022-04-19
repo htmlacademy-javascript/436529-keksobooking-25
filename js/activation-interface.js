@@ -7,11 +7,20 @@ const filterChildrenFieldset = mapFilter.querySelectorAll('fieldset');
 
 const allFormAndFilterChildren = [...formChildren, ...filterChildrenSelect, ...filterChildrenFieldset];
 
+export const disabledFilter = () => {
+  mapFilter.classList.add('map__filters--disabled');
+};
+
+export const disabledForm = () => {
+  form.classList.add('ad-form--disabled');
+};
+
+
 // Инактивация элементов
 export const disableInterface = () => {
 
-  form.classList.add('ad-form--disabled');
-  mapFilter.classList.add('map__filters--disabled');
+  disabledForm();
+  disabledFilter();
 
   allFormAndFilterChildren.forEach((child) => {
     child.setAttribute('disabled', 'disabled');

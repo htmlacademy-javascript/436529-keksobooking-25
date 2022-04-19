@@ -1,4 +1,5 @@
 import {FORM_ERROR_MESSAGE} from './const.js';
+import {showDataError} from './show-error-or-success.js';
 
 export const getData = (url, onSuccess, onError) => {
   fetch(url,
@@ -13,12 +14,14 @@ export const getData = (url, onSuccess, onError) => {
 
     .then((data) =>  {
 
-      onSuccess(data);
+      if(data) {
+        onSuccess(data);
+      }
 
     })
 
     .catch((error) => {
-
+      showDataError();
       onError(error);
     });
 

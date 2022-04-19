@@ -1,10 +1,10 @@
 import {pristine} from './libs/pristin-init.js';
 import {form, typeField, priceField, timeFieldset, range, timeFields} from './dom-nodes.js';
-import {sendData} from './api.js';
-import {resetPin} from './map.js';
-import {onSuccessSubmit, onErrorSubmit,} from './show-error-or-success.js';
-import {SENDING_DATA_URL} from './const.js';
-import {mapFilter} from './filters.js';
+import {sendData, getData} from './api.js';
+import {markerGroup, resetPin} from './map.js';
+import {onSuccessSubmit, onErrorSubmit, showDataError} from './show-error-or-success.js';
+import {SENDING_DATA_URL, GETTING_DATA_URL} from './const.js';
+import {mapFilter, fillMapFilteredAdds} from './filters.js';
 
 const TYPES_NIN_PRICE = {
   bungalow: '0',
@@ -53,6 +53,8 @@ export const onFormReset = () => {
   resetPin();
   range.noUiSlider.reset();
   mapFilter.reset();
+  markerGroup.clearLayers();
+  getData(GETTING_DATA_URL, fillMapFilteredAdds, showDataError);
   avatarPreview.src = DEFAULT_AVATAR;
   photoPreview.src = DEFAULT_AVATAR;
 
@@ -66,7 +68,7 @@ export const onFormReset = () => {
 };
 
 // Взаимодействие с формой
-export const interactionWithForm = () => {
+export const interactWithForm = () => {
   form.addEventListener('submit', onFormSubmit);
   form.addEventListener('reset', onFormReset);
 };
@@ -107,4 +109,3 @@ export const onImageAreaLoad = (fileChooser, preview) => {
     }
   });
 };
-
