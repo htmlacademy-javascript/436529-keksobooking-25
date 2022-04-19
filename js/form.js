@@ -6,12 +6,12 @@ import {onSuccessSubmit, onErrorSubmit, showDataError} from './show-error-or-suc
 import {SENDING_DATA_URL, GETTING_DATA_URL} from './const.js';
 import {mapFilter, fillMapFilteredAdds} from './filters.js';
 
-const TYPES_NIN_PRICE = {
-  bungalow: '0',
-  flat: '1000',
-  hotel: '3000',
-  house: '5000',
-  palace: '10000'
+export const TYPES_MIN_PRICE = {
+  bungalow: 0,
+  flat: 1000,
+  hotel: 3000,
+  house: 5000,
+  palace: 10000
 };
 
 const FILE_TYPES = ['gif', 'jpg', 'jpeg', 'png'];
@@ -76,7 +76,7 @@ export const interactWithForm = () => {
 // Меняем плейсхолдер в зависимости от типа жилья
 typeField.addEventListener('change', () => {
   const typeValue = typeField.value;
-  const attributeValue = TYPES_NIN_PRICE[typeValue];
+  const attributeValue = TYPES_MIN_PRICE[typeValue];
 
   priceField.setAttribute('min', attributeValue);
   priceField.setAttribute('placeholder', attributeValue);

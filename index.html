@@ -113,7 +113,7 @@
         </fieldset>
         <fieldset class="ad-form__element" id="price_fieldset">
           <label class="ad-form__label" for="price">Цена за ночь, руб.</label>
-          <input class="ad-form__input" id="price" name="price" type="number" placeholder="5000" min="5000" max="100000" required data-pristine-required-message="Обязательное поле, введите число" data-pristine-min-message="Слишком маленькое число" data-pristine-max-message="Максимальная цена 100000">
+          <input class="ad-form__input" id="price" name="price" type="number" placeholder="5000" max="100000" required data-pristine-required-message="Обязательное поле, введите число" data-pristine-max-message="Максимальная цена 100000">
           <div class="ad-form__slider">
             <div id="range">
               <span id="range-value" class="range__value"></span>
@@ -174,7 +174,7 @@
           <label class="ad-form__label">Фотография жилья</label>
           <div class="ad-form__photo-container">
             <div class="ad-form__upload">
-              <input type="file" id="images" name="images" class="ad-form__input visually-hidden" data-pristine-required-message="Добавьте фото жилья">
+              <input type="file" id="images" name="images" class="ad-form__input visually-hidden">
               <label for="images" class="ad-form__drop-zone">Загрузить<br>фото...</label>
             </div>
             <div class="ad-form__photo">

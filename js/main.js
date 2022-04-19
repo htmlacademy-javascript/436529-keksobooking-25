@@ -1,4 +1,4 @@
-import {disableInterface, enableInterface, disabledFilter} from './activation-interface.js';
+import {disableInterface, enableInterface, disableFilter} from './activation-interface.js';
 import {mapLoaded, mainPin} from './libs/leaflet-init.js';
 import './validate-form.js';
 import {interactWithForm, onImageAreaLoad, fileAvatarChooser, avatarPreview, filePhotoChooser, photoPreview} from './form.js';
@@ -15,7 +15,7 @@ if (mapLoaded) {
   // Включили интерфейс
   enableInterface();
   // Получили данные и разместили метки на карте с возможностью фильтрации (если данные пришли)
-  getData(GETTING_DATA_URL, fillMapFilteredAdds, disabledFilter);
+  getData(GETTING_DATA_URL, fillMapFilteredAdds, disableFilter);
 }
 
 // Взаимодействуем с главным пином
